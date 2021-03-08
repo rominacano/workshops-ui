@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import './App.css';
+import routes, { renderRoutes } from 'src/routes';
+import { AuthProvider } from 'src/contexts/JWTAuthContext';
+import { SnackbarProvider } from 'notistack';
+
+const history = createBrowserHistory();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SnackbarProvider dense maxSnack={3}>
+      <Router history={history}>
+        <AuthProvider>{renderRoutes(routes)}</AuthProvider>
+      </Router>
+    </SnackbarProvider>
   );
 }
 

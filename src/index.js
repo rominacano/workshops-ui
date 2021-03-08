@@ -1,3 +1,6 @@
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import 'nprogress/nprogress.css';
+import 'src/__mocks__';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
